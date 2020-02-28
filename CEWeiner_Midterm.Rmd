@@ -3,16 +3,13 @@ title: "TBANLT 560 | Data Mining Midterm Exam"
 subtitle: "Chapters 1, 2, 4-9"
 author: "C.E.Weiner"
 date: "2/23/2020"
-output:
-  html_document: default
-  word_document: default
-  pdf_document: default
+output: github_document
 always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-setwd("D:/MSBA/3-Winter 2020/560/midterm")
+setwd("C:/Users/CEWei/OneDrive/Documents/GitHub/560Midterm")
 library(tidyverse)
 library(readxl)
 library(lemon)
@@ -65,7 +62,7 @@ This would be one of the more involved parts of the process as it is where the h
 ### B
 **Missing data can be problematic.  There are several ways for handling missing data. Given the following table define two data imputation methods which we have covered for filling in the missing values.**
 ```{r 2B Table, echo=FALSE}
-twob <- read_excel("D:/MSBA/3-Winter 2020/560/midterm/MidtermData.xlsx",sheet = "2BTable")
+twob <- read_excel("./MidtermData.xlsx",sheet = "2BTable")
 kable(twob)
 ```
 
@@ -83,7 +80,7 @@ kable(twob2)
 ### A
 **Split the data into 10 equal (roughly)  partitions.  That means that you will have 633/10 records in each partition.  Determine the number of records with a value of BK = 0 in each partition.**
 ```{r 3A}
-three <- read_excel("D:/MSBA/3-Winter 2020/560/midterm/MidtermData.xlsx",sheet = "Q3DATA")
+three <- read_excel("./MidtermData.xlsx",sheet = "Q3DATA")
 
 #manual method of splitting
 part1<-three[1:63,]
@@ -176,7 +173,7 @@ res
 ## 4 
 **Below is the output from a PCA.**  
 <center>
-![PCA Chart](D:/MSBA/3-Winter 2020/560/midterm/PCA.png)
+![PCA Chart](./PCA.png)
 </center>
 
 ### A
@@ -197,7 +194,7 @@ res
 ### C
 **Using the Factor loading table below, identify the latent factors and give them a label. Justify your labels.  **   
 <center>
-![FLT Chart](D:/MSBA/3-Winter 2020/560/midterm/FLT.png)
+![FLT Chart](./FLT.png)
 </center>  
 
 >1. **The Technical Competence Factor**: very high potential, company fit, and job fit but low scores on the "soft-skill" categories  
@@ -208,7 +205,7 @@ res
 ## 5
 **Use the table below to answer this question:**   
 <center>
-![Problem 5 Chart](D:/MSBA/3-Winter 2020/560/midterm/CM.png)
+![Problem 5 Chart](./CM.png)
 </center>  
 
 ### A
@@ -249,11 +246,11 @@ cm.DF[,c(2:3)]
 **The following table below contains 10 records for the training data and 10 for the test. Using KNN to identify the test data classes. Determine the *K* from possible values of 3, 4, and 5 that will give you the best accuracy for the test cases.**    
 *Note: you will want to convert the variable values to integer to perform KNN.*  
 <center>
-![Problem 6 Chart](D:/MSBA/3-Winter 2020/560/midterm/EyeChart.png)
+![Problem 6 Chart](./EyeChart.png)
 </center>  
 ```{r 6}
-train <- read_excel("D:/MSBA/3-Winter 2020/560/midterm/MidtermData.xlsx",sheet = "Q6Train")
-valid <- read_excel("D:/MSBA/3-Winter 2020/560/midterm/MidtermData.xlsx",sheet = "Q6Test")
+train <- read_excel("./MidtermData.xlsx",sheet = "Q6Train")
+valid <- read_excel("./MidtermData.xlsx",sheet = "Q6Test")
 
 #convert to variable integers
 df<-rbind(train,valid)
@@ -286,7 +283,7 @@ as.data.frame(accuracy.df[3:5,])
 ## 7
 **Given the following table construct the decision tree manually using the Gini impurity measure:**
 <center>
-![Problem 7 Chart](D:/MSBA/3-Winter 2020/560/midterm/DTC.png)
+![Problem 7 Chart](./DTC.png)
 </center>
 ```{r 7}
 #When building a decision tree we want to choose the feature with the least Gini Index as the root node.
@@ -358,7 +355,7 @@ df
 ```
 
 <center>
-[![Problem 7 Chart](D:/MSBA/3-Winter 2020/560/midterm/tree.png)](https://www.flaticon.com/)
+[![Problem 7 Chart](./tree.png)](https://www.flaticon.com/)
 </center>
 
 ## 8 
@@ -371,20 +368,20 @@ We have data for the following X variables, all of which are binary (1 or 0):**
 
 **The following table is an example of the data:**  
 ```{r 8, echo=FALSE}
-eight <- read_excel("D:/MSBA/3-Winter 2020/560/midterm/MidtermData.xlsx",sheet = "Q8")
+eight <- read_excel("./MidtermData.xlsx",sheet = "Q8")
 kable(eight)
 ```
 
 **For computing the probabilities, the training data is aggregated to form a counts table like this:**
 <center>
-![Problem 8 Chart](D:/MSBA/3-Winter 2020/560/midterm/Fruit.png)
+![Problem 8 Chart](./Fruit.png)
 </center>   
 
 **If a fruit is long, sweet, and yellow, what is it? Show your work.**  
 
 >We can utilize the Naïve Bayes theorem to solve this problem:
 <center>
-![Naïve Bayes Theorem](D:/MSBA/3-Winter 2020/560/midterm/Bayes.jpg)
+![Naïve Bayes Theorem](./Bayes.jpg)
 </center>
 
 ```{r 8A}
